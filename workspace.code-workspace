@@ -1,3 +1,13 @@
 {
-	"folders": []
+  "folders": [
+    {
+      "path": "Homework1"
+    },
+    {
+      "path": "HW2-CompanyPage"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "HW2-CompanyPage"
+  }
 }
