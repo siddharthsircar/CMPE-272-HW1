@@ -107,7 +107,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 probootstrap-animate">
-            <p class="mb-5">
+            <p class="mb-2">
               <p><strong>Connect with our executive or send us a message and we will get back to you</strong></p>
               <span class="text-uppercase">
                 <strong>Executive Details</strong>
@@ -123,6 +123,7 @@
                   ?>
               </div>
             </p>
+            <br/>
             <div class="row">
               <div class="col-md-6">
                 <ul class="probootstrap-contact-details">
