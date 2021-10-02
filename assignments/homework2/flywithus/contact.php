@@ -60,7 +60,7 @@
         </button>
         <div class="collapse navbar-collapse" id="probootstrap-menu">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
@@ -75,8 +75,8 @@
             <li class="nav-item">
               <a class="nav-link" href="./index.html#news">News</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="contact.php">Contact</a>
             </li>
           </ul>
         </div>
@@ -108,51 +108,40 @@
         <div class="row">
           <div class="col-md-6 probootstrap-animate">
             <p class="mb-5">
-            <div>
-            	<?php 
-                $contacts = fopen("txt/contacts.txt", "r");
-                while(($line=fgets($contacts))!==false){
-                    echo $line;
-                    echo "<br/>";
-                }
-                fclose($contacts)
-                ?>
-            </div><div>
-            	<?php 
-                $contacts = fopen("txt/contacts.txt", "r");
-                while(($line=fgets($contacts))!==false){
-                    echo $line;
-                    echo "<br/>";
-                }
-                fclose($contacts)
-                ?>
-            </div>
+              <p><strong>Connect with our executive or send us a message and we will get back to you</strong></p>
+              <span class="text-uppercase">
+                <strong>Executive Details</strong>
+              </span>
+              <div>
+                <?php 
+                  $contacts = fopen("./assets/contacts.txt", "r");
+                  while(($line=fgets($contacts))!==false){
+                      echo $line;
+                      echo "<br/>";
+                  }
+                  fclose($contacts)
+                  ?>
+              </div>
             </p>
             <div class="row">
               <div class="col-md-6">
                 <ul class="probootstrap-contact-details">
                   <li>
                     <span class="text-uppercase"
-                      ><span class="ion-paper-airplane"></span> Email</span
+                      ><span class="ion-paper-airplane"></span>Buisiness Email</span
                     >
-                    you_mail@gmail.com
+                    flywithus@yopmail.com
                   </li>
                   <li>
                     <span class="text-uppercase"
                       ><span class="ion-ios-telephone"></span> Phone</span
                     >
-                    +30 976 1382 9921
+                    +1 976 1382 9921
                   </li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <ul class="probootstrap-contact-details">
-                  <li>
-                    <span class="text-uppercase"
-                      ><span class="ion-ios-telephone"></span> Fax</span
-                    >
-                    +30 976 1382 9922
-                  </li>
                   <li>
                     <span class="text-uppercase"
                       ><span class="ion-location"></span> Address</span
@@ -258,7 +247,7 @@
                 <a href="./services.html">Services</a>
               </li>
               <li>
-                <a href="./contact.html">Contact</a>
+                <a href="./contact.php">Contact</a>
               </li>
             </ul>
           </div>
