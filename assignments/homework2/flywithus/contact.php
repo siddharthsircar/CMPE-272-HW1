@@ -77,6 +77,9 @@
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="contact.php">Contact</a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link" href="users.php">Users</a>
             </li>
           </ul>
         </div>

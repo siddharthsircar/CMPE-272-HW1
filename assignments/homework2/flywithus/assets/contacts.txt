@@ -1,7 +1,6 @@
 Name: Siddharth Sircar
 Phone: +1 408 207 7389
 Email: siddharth.sircar@sjsu.edu
-
 Name: Bruce Wayne
 Phone: +1 408 207 7389
 Email: bwayne@yopmail.com
