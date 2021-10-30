@@ -52,7 +52,7 @@ if (!isset($_SESSION["user"])) {
             <a class="nav-link" href="city-guides.html">City Guides</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
+            <a class="nav-link" href="services.php">Services</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="travel.html">About Us</a>
@@ -269,7 +269,7 @@ if (!isset($_SESSION["user"])) {
               <a href="./travel.html">About</a>
             </li>
             <li>
-              <a href="./services.html">Services</a>
+              <a href="./services.php">Services</a>
             </li>
             <li>
               <a href="./contact.php">Contact</a>
