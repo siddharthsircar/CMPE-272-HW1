@@ -89,7 +89,7 @@
 
                     <div class="w-90" style="margin: 15px;">
                         <div class="row my-1">
-                            <div class="col-sm-3">
+                            <div class="col-md-5">
                                 <h3 for="form-adduser">Our Users</h3>
                                 <table class="table">
                                     <tr>
@@ -131,18 +131,12 @@
                                 </table>
                             </div>
                             <div class="col-sm-1"></div>
-                            <div class="col">
-                                <br />
-                                <h3 for="form-adduser">Company B Users</h3>
+                            <div class="col-md-4">
+                                <h3 for="form-adduser">MuscleTron Users</h3>
                                 <table class="table">
                                     <tr>
-
                                         <td class="tableheader"><strong>First Name</strong></td>
                                         <td class="tableheader"><strong>Last Name</strong></td>
-                                        <td class="tableheader"><strong>Email</strong></td>
-                                        <td class="tableheader"><strong>Home Address</strong></td>
-                                        <td class="tableheader"><strong>Home Phone</strong></td>
-                                        <td class="tableheader"><strong>Cell Phone</strong></td>
                                     </tr>
                                     <?php require "./dbutils/dbconnect.php" ?>
                                     <?php
@@ -152,33 +146,19 @@
                                     curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
                                     $contents = curl_exec($curl_handle);
                                     curl_close($curl_handle);
-                                    foreach (explode(",", $contents) as $content) {
-                                        echo $content . "<br/>";
+                                    $users = preg_split('/<br[^>]*>/i', $contents);
+                                    foreach ($users as $user) {
+                                        if ($user == "") break;
+                                        $firstName = explode(" ", $user)[0];
+                                        $lastName = explode(" ", $user)[1];
+                                        echo "<tr>";
+                                        echo "<td>";
+                                        echo $firstName;
+                                        echo "</td>";
+                                        echo "<td>";
+                                        echo $lastName;
+                                        echo "</td>";
                                     }
-                                    // $sql = "SELECT * FROM users";
-                                    // $result = $conn->query($sql);
-                                    // while ($row = $result->fetch_assoc()) {
-                                    //     echo "<tr>";
-                                    //     echo "<td>";
-                                    //     echo $row["firstName"];
-                                    //     echo "</td>";
-                                    //     echo "<td>";
-                                    //     echo $row["lastName"];
-                                    //     echo "</td>";
-                                    //     echo "<td>";
-                                    //     echo $row["email"];
-                                    //     echo "</td>";
-                                    //     echo "<td>";
-                                    //     echo $row["homeAddress"];
-                                    //     echo "</td>";
-                                    //     echo "<td>";
-                                    //     echo $row["homePhone"];
-                                    //     echo "</td>";
-                                    //     echo "<td>";
-                                    //     echo $row["cellPhone"];
-                                    //     echo "</td>";
-                                    //     echo "</tr>";
-                                    // }
                                     ?>
                                 </table>
                             </div>
