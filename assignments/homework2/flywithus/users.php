@@ -148,10 +148,6 @@ if (!isset($_SESSION["user"])) {
                       <!-- <label for="exampleInputEmail1">Email address</label> -->
                       <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
                     </div>
-                    <!-- <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                              </div> -->
                     <button type="submit" class="btn btn-primary">Add User</button>
                   </form>
                 </div>
@@ -246,6 +242,10 @@ if (!isset($_SESSION["user"])) {
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#search-modal">
                     Search User
                   </button>
+                  <br />
+                  <form action="users.php" method="post">
+                    <input type="submit" name="search-all" class="login btn btn-primary loginmodal-submit" value="Show All">
+                  </form>
                 </div>
 
               </div>
