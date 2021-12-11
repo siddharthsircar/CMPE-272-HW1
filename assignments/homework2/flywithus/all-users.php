@@ -98,8 +98,7 @@
                                         <td class="tableheader"><strong>Last Name</strong></td>
                                         <td class="tableheader"><strong>Email</strong></td>
                                         <td class="tableheader"><strong>Home Address</strong></td>
-                                        <td class="tableheader"><strong>Home Phone</strong></td>
-                                        <td class="tableheader"><strong>Cell Phone</strong></td>
+                                        <td class="tableheader"><strong>Phone</strong></td>
                                     </tr>
                                     <?php require "./dbutils/dbconnect.php" ?>
                                     <?php
@@ -117,13 +116,10 @@
                                         echo $row["email"];
                                         echo "</td>";
                                         echo "<td>";
-                                        echo $row["homeAddress"];
+                                        echo $row["address"];
                                         echo "</td>";
                                         echo "<td>";
-                                        echo $row["homePhone"];
-                                        echo "</td>";
-                                        echo "<td>";
-                                        echo $row["cellPhone"];
+                                        echo $row["phone"];
                                         echo "</td>";
                                         echo "</tr>";
                                     }
@@ -144,6 +140,7 @@
                                     curl_setopt($curl_handle, CURLOPT_HEADER, 0);
                                     curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
                                     $contents = curl_exec($curl_handle);
+                                    print_r($contents);
                                     curl_close($curl_handle);
                                     $users = preg_split('/<br[^>]*>/i', $contents);
                                     foreach ($users as $user) {

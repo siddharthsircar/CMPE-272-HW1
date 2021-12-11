@@ -1,22 +1,12 @@
-lastSeen<?php
-        // $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        // $escaped_url = htmlspecialchars($actual_link, ENT_QUOTES, 'UTF-8');
-        // $name = "South Africa";
-        // if (!isset($_COOKIE['history'])) {
-        //     setcookie('history', serialize(array($name)), time() + 3600, "/", null);
-        // } else {
-        //     $products = unserialize($_COOKIE['history']);
-        //     array_push($products, $name);
-        //     setcookie('history', serialize($products), time() + 3600, "/", null);
-        // }
-        $id = "South Africa";
-        if (!isset($_COOKIE["lastSeen"])) {
-            setcookie("lastSeen",  "" . $id, time() + (86400 * 30), "/"); // 86400 = 1 day
-        } else {
-            $products = $_COOKIE["lastSeen"] . "," . $id;
-            setcookie("lastSeen",  $products, time() + (86400 * 30), "/");
-        }
-        ?>
+<?php
+$id = "South Africa";
+if (!isset($_COOKIE["lastSeen"])) {
+    setcookie("lastSeen",  "" . $id, time() + (86400 * 30), "/"); // 86400 = 1 day
+} else {
+    $products = $_COOKIE["lastSeen"] . "," . $id;
+    setcookie("lastSeen",  $products, time() + (86400 * 30), "/");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
