@@ -1,13 +1,20 @@
 <?php
-$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$escaped_url = htmlspecialchars($actual_link, ENT_QUOTES, 'UTF-8');
-$name = "Sri Lanka";
-if (!isset($_COOKIE['history'])) {
-    setcookie('history', serialize(array($name)), time() + 3600, "/", null);
+// $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+// $escaped_url = htmlspecialchars($actual_link, ENT_QUOTES, 'UTF-8');
+// $name = "Sri Lanka";
+// if (!isset($_COOKIE['history'])) {
+//     setcookie('history', serialize(array($name)), time() + 3600, "/", null);
+// } else {
+//     $products = unserialize($_COOKIE['history']);
+//     array_push($products, $name);
+//     setcookie('history', serialize($products), time() + 3600, "/", null);
+// }
+$id = "Sri Lanka";
+if (!isset($_COOKIE["lastSeen"])) {
+    setcookie("lastSeen",  "" . $id, time() + (86400 * 30), "/"); // 86400 = 1 day
 } else {
-    $products = unserialize($_COOKIE['history']);
-    array_push($products, $name);
-    setcookie('history', serialize($products), time() + 3600, "/", null);
+    $products = $_COOKIE["lastSeen"] . "," . $id;
+    setcookie("lastSeen",  $products, time() + (86400 * 30), "/");
 }
 ?>
 <!DOCTYPE html>
@@ -95,6 +102,12 @@ if (!isset($_COOKIE['history'])) {
         <div class="container">
             <div class="row mb-3">
                 Stunning Sri Lanka
+            </div>
+            <div class="row mb-3">
+                6N/7D Trip to Sri Lanka
+            </div>
+            <div class="row mb-3">
+                $ 5000
             </div>
         </div>
     </section>

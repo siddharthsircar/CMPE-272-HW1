@@ -1,4 +1,4 @@
-<?php
+<!-- 
 session_start();
 if (isset($_POST["login"]) && !empty($_POST["userName"]) && !empty($_POST["inputPassword"])) {
 
@@ -11,4 +11,18 @@ if (isset($_POST["login"]) && !empty($_POST["userName"]) && !empty($_POST["input
         exit;
     }
 }
-header("location: users.php");
+header("location: users.php"); -->
+
+<?php require "./dbutils/dbconnect.php" ?>
+<?php
+session_start();
+if (isset($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"])) {
+    $sql = "SELECT * FROM user WHERE email = '" . $_POST["email"] . "' and password = '" . $_POST["password"] . "'";
+    $result = $conn->query($sql);
+    if ($result) {
+        $_SESSION["user"] = $_POST["email"];
+        header("location: index.html");
+    } else {
+        header("location: users.php");
+    }
+}

@@ -1,15 +1,22 @@
-<?php
-$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$escaped_url = htmlspecialchars($actual_link, ENT_QUOTES, 'UTF-8');
-$name = "Russia";
-if (!isset($_COOKIE['history'])) {
-    setcookie('history', serialize(array($name)), time() + 3600, "/", null);
-} else {
-    $products = unserialize($_COOKIE['history']);
-    array_push($products, $name);
-    setcookie('history', serialize($products), time() + 3600, "/", null);
-}
-?>
+lastSeen<?php
+        // $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        // $escaped_url = htmlspecialchars($actual_link, ENT_QUOTES, 'UTF-8');
+        // $name = "Russia";
+        // if (!isset($_COOKIE['history'])) {
+        //     setcookie('history', serialize(array($name)), time() + 3600, "/", null);
+        // } else {
+        //     $products = unserialize($_COOKIE['history']);
+        //     array_push($products, $name);
+        //     setcookie('history', serialize($products), time() + 3600, "/", null);
+        // }
+        $id = "Russia";
+        if (!isset($_COOKIE["lastSeen"])) {
+            setcookie("lastSeen",  "" . $id, time() + (86400 * 30), "/"); // 86400 = 1 day
+        } else {
+            $products = $_COOKIE["lastSeen"] . "," . $id;
+            setcookie("lastSeen",  $products, time() + (86400 * 30), "/");
+        }
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,7 +102,13 @@ if (!isset($_COOKIE['history'])) {
     <section class="probootstrap_section" id="section-city-guides">
         <div class="container">
             <div class="row mb-3">
-                Discover Turkey
+                Discover Russia
+            </div>
+            <div class="row mb-3">
+                5N/6D Trip to Russia
+            </div>
+            <div class="row mb-3">
+                $ 5000
             </div>
         </div>
     </section>

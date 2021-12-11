@@ -1,3 +1,12 @@
+<?php
+$showLastVisited = FALSE;
+if (isset($_COOKIE["lastSeen"])) {
+  $showLastVisited = TRUE;
+  $products = explode(",", $_COOKIE["lastSeen"]);
+  $last5Products = array_slice($products, -5);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -293,8 +302,7 @@
   </section>
 
   <?php
-  if (isset($_COOKIE['history'])) {
-    $products = unserialize($_COOKIE['history']);
+  if ($showLastVisited) {
     echo '
       <section class="probootstrap_section">
       <div class="container">
@@ -307,12 +315,12 @@
       <div class="col-md-12">
       <div class="owl-carousel js-owl-carousel">
     ';
-    for ($i = 0; $i < count($products); $i += 1) {
+    for ($i = 0; $i < count($last5Products); $i += 1) {
       echo '
       <a class="probootstrap-slide" href="#">
       <span>
       ';
-      echo $products[$i];
+      echo $last5Products[$i];
       echo '</span></a>';
     }
     echo '</div></div></div></div></section>';

@@ -109,8 +109,8 @@ if (!isset($_SESSION["user"])) {
                 <div class="col-4"></div>
                 <div class="col-4">
                   <form class="form-signin" method="post" action="admin-login.php">
-                    <input type="text" name="userName" class="form-control" placeholder="Username" required autofocus="">
-                    <input type="password" name="inputPassword" class="form-control my-2" placeholder="Password" required>
+                    <input type="text" name="email" class="form-control" placeholder="Enter Email" required autofocus>
+                    <input type="password" name="password" class="form-control my-2" placeholder="Enter Password" required>
                     <button class="btn btn-lg btn-primary btn-block my-2" type="submit" name="login" value="login">Sign in</button>
                   </form>
                 </div>
@@ -139,10 +139,6 @@ if (!isset($_SESSION["user"])) {
                     <div class="form-group">
                       <!-- <label for="homeaddress">Home Address</label> -->
                       <input type="text" class="form-control" name="homeaddress" aria-describedby="phoneHelp" placeholder="Enter home address" required>
-                    </div>
-                    <div class="form-group">
-                      <!-- <label for="homephone">Home Phone</label> -->
-                      <input type="text" class="form-control" name="homephone" aria-describedby="phoneHelp" placeholder="Enter home phone" required>
                     </div>
                     <div class="form-group">
                       <!-- <label for="exampleInputEmail1">Email address</label> -->
@@ -188,14 +184,13 @@ if (!isset($_SESSION["user"])) {
                       <td class="tableheader"><strong>First Name</strong></td>
                       <td class="tableheader"><strong>Last Name</strong></td>
                       <td class="tableheader"><strong>Email</strong></td>
-                      <td class="tableheader"><strong>Home Address</strong></td>
-                      <td class="tableheader"><strong>Home Phone</strong></td>
-                      <td class="tableheader"><strong>Cell Phone</strong></td>
+                      <td class="tableheader"><strong>Address</strong></td>
+                      <td class="tableheader"><strong>Phone</strong></td>
                     </tr>
                     <?php require "./dbutils/dbconnect.php" ?>
                     <?php
                     if (isset($_POST["search"])) {
-                      $sql = "SELECT * FROM users WHERE";
+                      $sql = "SELECT * FROM user WHERE";
                       if (isset($_POST["name"]) and $_POST["name"] != "") {
                         $sql = $sql . " firstName LIKE '%" . $_POST["name"] . "%' OR lastName LIKE '%" . $_POST["name"] . "%'";
                       } else {
@@ -205,12 +200,12 @@ if (!isset($_SESSION["user"])) {
                         $sql = $sql . "OR email LIKE '%" . $_POST["email"] . "%'";
                       }
                       if (isset($_POST["phone"]) and $_POST["phone"] != "") {
-                        $sql = $sql . "OR homePhone LIKE'%" . $_POST["phone"] . "%' OR cellPhone LIKE '%" . $_POST["phone"] . "%';";
+                        $sql = $sql . "OR phone LIKE'%" . $_POST["phone"] . "%' OR phone LIKE '%" . $_POST["phone"] . "%';";
                       }
 
                       $result = $conn->query($sql);
                     } else {
-                      $sql = "SELECT * FROM users";
+                      $sql = "SELECT * FROM user";
                       $result = $conn->query($sql);
                     }
 
@@ -227,13 +222,10 @@ if (!isset($_SESSION["user"])) {
                       echo $row["email"];
                       echo "</td>";
                       echo "<td>";
-                      echo $row["homeAddress"];
+                      echo $row["address"];
                       echo "</td>";
                       echo "<td>";
-                      echo $row["homePhone"];
-                      echo "</td>";
-                      echo "<td>";
-                      echo $row["cellPhone"];
+                      echo $row["phone"];
                       echo "</td>";
                       echo "</tr>";
                     }

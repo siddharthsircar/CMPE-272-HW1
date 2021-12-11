@@ -103,7 +103,7 @@
                                     </tr>
                                     <?php require "./dbutils/dbconnect.php" ?>
                                     <?php
-                                    $sql = "SELECT * FROM users";
+                                    $sql = "SELECT * FROM user";
                                     $result = $conn->query($sql);
                                     while ($row = $result->fetch_assoc()) {
                                         echo "<tr>";
@@ -138,7 +138,6 @@
                                         <td class="tableheader"><strong>First Name</strong></td>
                                         <td class="tableheader"><strong>Last Name</strong></td>
                                     </tr>
-                                    <?php require "./dbutils/dbconnect.php" ?>
                                     <?php
                                     $curl_handle = curl_init();
                                     curl_setopt($curl_handle, CURLOPT_URL, "http://krishnagupta.live/cmpe272/homework6/userApi.php");
